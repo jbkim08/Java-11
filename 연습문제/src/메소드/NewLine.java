@@ -11,7 +11,7 @@ public class NewLine {
 	private static void threeLines() {
 		oneLine();
 		oneLine();
-		oneLine();		
+		oneLine();	
 	}
 
 	private static void oneLine() {
