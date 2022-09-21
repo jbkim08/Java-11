@@ -5,8 +5,8 @@ public class App {
 	public static void main(String[] args) {
 		// 행맨 게임 시작
 		Hangman game = new Hangman();
-		game.run(); //시작
-
+		game.run();   //시작
+		game.close(); //스캐너 닫기
 	}
 
 }

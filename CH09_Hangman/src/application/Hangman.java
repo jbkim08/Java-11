@@ -32,9 +32,22 @@ public class Hangman {
 	}
 	
 	private void checkInput() {
-		System.out.println("단어확인 및 종료");		
+		//유저가 단어를 다 맞췄는지 체크해서 게임을 종료
+		//게임 종료 확인을 하는 메소드 isCompleted 를 RandomWord 클래스에 만들기
+		if(randomWord.isCompleted()) {
+			System.out.println("잘 맞췄습니다!");
+			System.out.println("정답은 : " + randomWord);
+			running = false; //반복문 종료
+		}
 	}
 
-
-
+	public void close() {
+		scanner.close(); //게임이 끝나면 스캐너 닫기
+	}
 }
+
+
+
+
+
+

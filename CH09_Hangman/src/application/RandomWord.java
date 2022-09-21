@@ -26,7 +26,7 @@ public class RandomWord {
 			sb.append((c == '\u0000') ? '_' : c);
 			sb.append(' ');
 		}
-		// System.out.println(selectWord);
+		//System.out.println(selectWord);
 		return sb.toString(); // 선택단어를 _로리턴
 	}
 
@@ -45,6 +45,20 @@ public class RandomWord {
 				characters[i] = c;
 			}
 		}
-
+	}
+	
+	public boolean isCompleted() {
+		// 맞춘문자는 characters배열에 있으므로 배열에 모든 철자가 '\u0000'이 아니면 다맞춤
+		for(char c: characters) {
+			if(c == '\u0000') {
+				return false;
+			}
+		}
+		return true; //다 맞춘것
 	}
 }
+
+
+
+
+
