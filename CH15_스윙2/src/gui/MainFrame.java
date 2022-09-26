@@ -8,10 +8,12 @@ public class MainFrame extends JFrame{
 	
 	public MainFrame(String title) {
 		super(title); //창의 제목넣기
+		
+		final MainPanel mainPanel = new MainPanel();
 								
 		setLayout(new BorderLayout());   //보더 레이아웃
-		add(new Toolbar(), BorderLayout.NORTH); //툴바를 메인프레임에 붙이기
-		add(new MainPanel(), BorderLayout.CENTER); //패널을 메인프레임에 붙이기
+		add(new Toolbar(mainPanel), BorderLayout.NORTH); //툴바를 메인프레임에 붙이기
+		add(mainPanel, BorderLayout.CENTER); //패널을 메인프레임에 붙이기
 				
 		setSize(600,400);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

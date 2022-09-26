@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,23 +10,31 @@ import javax.swing.JToolBar;
 public class Toolbar extends JToolBar {
 	private static final long serialVersionUID = 1L;
 	
-	public Toolbar() {
+	public Toolbar(MainPanel mainPanel) {
 		final JButton red = new JButton("RED");
 		final JButton blue = new JButton("BLUE");
 		
-		red.addActionListener(new RedListener());
+		red.addActionListener(new ColorListener(mainPanel, Color.RED));
+		blue.addActionListener(new ColorListener(mainPanel, Color.BLUE));
 		
 		add(red);
 		add(blue);
 	}
 }
 
-class RedListener implements ActionListener {
+class ColorListener implements ActionListener {
+	private MainPanel mainPanel;
+	private Color color;
+	
+	public ColorListener(MainPanel mainPanel, Color color) {
+		this.mainPanel = mainPanel;
+		this.color = color;
+	}
+
 	public void actionPerformed(ActionEvent e) {
-		// 여기에 만든 코드가 버튼을 누르면 실행됨	
-		System.out.println("빨간버튼 눌렀음!");
+		// 메인패널객체의 주소를 알아야함
+		mainPanel.setBackground(color);
 	}	
 }
-
 
 
