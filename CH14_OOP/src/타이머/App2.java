@@ -8,16 +8,20 @@ public class App2 {
 
 	public static void main(String[] args) {
 		ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-		executor.scheduleAtFixedRate(new Task(), 0, 1, TimeUnit.SECONDS);
+		executor.scheduleAtFixedRate(new Runnable() {
+			public void run() {
+				System.out.println("하이!");
+			}
+		}, 0, 1, TimeUnit.SECONDS);
 	}
 }
 
-class Task implements Runnable {
-	@Override
-	public void run() {
-		System.out.println("하이!");
-	}
-}
+//class Task implements Runnable {
+//	@Override
+//	public void run() {
+//		System.out.println("하이!");
+//	}
+//}
 
 
 
