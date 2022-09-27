@@ -19,50 +19,41 @@ public class CurrencyTest {
 }
 
 /* 1. 부모 클래스 Currency를 만드시오. */
-class Currency{
-	private double amount;   // 값
+class Currency {
+	private double amount; // 값
 	private String notation; // 표기법
 
 	public Currency(double amount, String notation) {
 		this.amount = amount;
 		this.notation = notation;
 	}
-	public double getAmount() {
-		return amount;
+
+	@Override
+	public String toString() {
+		return String.format("%s: %.2f %s", getClass().getSimpleName(), amount, notation);
 	}
 }
 
-class KRW extends Currency{
+class KRW extends Currency {
 	public KRW(double amount, String notation) {
 		super(amount, notation);
 	}
-	@Override
-	public String toString() {
-		return String.format("KRW: %.2f 원",super.getAmount());
-	}
 }
-class USD extends Currency{
+
+class USD extends Currency {
 	public USD(double amount, String notation) {
 		super(amount, notation);
 	}
-	public String toString() {
-		return String.format("USD: %.2f 달러",super.getAmount());
-	}
 }
-class EUR extends Currency{
+
+class EUR extends Currency {
 	public EUR(double amount, String notation) {
 		super(amount, notation);
 	}
-	public String toString() {
-		return String.format("EUR: %.2f 유로",super.getAmount());
-	}
 }
-class JPY extends Currency{
+
+class JPY extends Currency {
 	public JPY(double amount, String notation) {
 		super(amount, notation);
 	}
-	public String toString() {
-		return String.format("JPY: %.2f 엔",super.getAmount());
-	}
 }
-
