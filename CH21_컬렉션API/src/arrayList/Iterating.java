@@ -1,7 +1,6 @@
 package arrayList;
 
 import java.util.ArrayList;
-import java.util.function.Consumer;
 
 public class Iterating {
 	public static void main(String[] args) {
