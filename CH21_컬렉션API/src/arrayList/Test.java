@@ -21,13 +21,17 @@ public class Test {
 		}
 				
 		System.out.println();
-		if(numbers.isEmpty()) {
+		if(numbers.isEmpty()) { //리스트에 아이템이 없을때 참
 			System.out.println("입력된 숫자가 없습니다.");
 		} else {
 			System.out.println("입력된 숫자 : ");
+			double total = 0;
 			for(Double n : numbers) {
 				System.out.printf("%.2f\n", n);
+				total += n;
 			}
+			
+			System.out.printf("평균값 : %.2f", total/numbers.size());
 		}
 		
 	}
