@@ -16,7 +16,22 @@ public class Ex2 {
 		TreeSet<String> alice = loadWords(aliceBook);
 		
 		System.out.println(alice.size()); //단어의 갯수
+		
+		displayWords(alice);
 				
+	}
+	private static void displayWords(TreeSet<String> list) {
+		// 화면에 단어들을 출력하는 메소드 단어길이 6자 이상
+		int count = 0;
+		for (String w : list) {
+			if (w.length() < 6) continue;
+			System.out.printf("%-10s \t", w);
+			count++;
+			if(count == 6) {
+				System.out.println();
+				count = 0;
+			}
+		}
 	}
 	/**
 	 * txt책을 읽어서 모든 단어를 트리셋에 담어서 리턴
@@ -31,7 +46,7 @@ public class Ex2 {
 			while((line = br.readLine()) != null) {
 				String[] words = line.split("[^a-zA-Z]+");
 				for(String word: words) {
-					wordSet.add(word); //트리셋에 단어를 하나씩 추가
+					wordSet.add(word.toLowerCase()); //트리셋에 단어를 하나씩 추가
 				}
 			}
 		} catch (FileNotFoundException e) {
