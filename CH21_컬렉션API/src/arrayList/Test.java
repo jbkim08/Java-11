@@ -1,6 +1,7 @@
 package arrayList;
 
 import java.util.ArrayList;
+//import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Test {
