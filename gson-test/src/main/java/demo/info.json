@@ -1,0 +1,12 @@
+{"employees": [
+  {
+    "name": "길동",
+    "id": 1234,
+    "email": "gill@google.com"
+  },
+  {
+    "name": "펭수",
+    "id": 1235,
+    "email": "peng@google.com"
+  }
+]}
