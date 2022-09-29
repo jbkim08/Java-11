@@ -10,12 +10,12 @@ import java.net.URLEncoder;
 public class JsonSimple {
 
 	public static void main(String[] args) throws IOException {
-        StringBuilder urlBuilder = new StringBuilder("http://openapi.kepco.co.kr/service/EvInfoServiceV2/getEvSearchList"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=서비스키"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("addr","UTF-8") + "=" + URLEncoder.encode("전라남도 나주시 전력로 55", "UTF-8")); /*검색대상 충전소주소*/
-        URL url = new URL(urlBuilder.toString());
+        StringBuilder urlBuilder = new StringBuilder("https://api.odcloud.kr/api/15077586/v1/centers"); /*Base주소*/
+        urlBuilder.append("?serviceKey=" + "982NxEgdH6thK%2FZDz70UrCfhK7oAZbmNwMC5vj%2Ftc9p7MhU5F9xBeJD47SMMIMfpvUbADVmpJPpZzqFqZDVwPg%3D%3D"); /*Service Key*/
+        urlBuilder.append("&page=1"); /*페이지번호*/
+        urlBuilder.append("&perPage=10"); /*한 페이지 결과 수*/
+        
+        URL url = new URL(urlBuilder.toString()); //주소로 URL객체 생성
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Content-type", "application/json");
