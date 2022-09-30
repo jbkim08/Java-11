@@ -110,7 +110,17 @@ public class Project1 {
 			}
 			outputStream.close();
 			is.close();
-		}
+		}else {  // 에러 발생
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+            while ((inputLine = br.readLine()) != null) {
+                response.append(inputLine);
+            }
+            br.close();
+            conn.disconnect();
+            System.out.println(response.toString());
+        }
 
 	}
 
