@@ -1,5 +1,7 @@
 package demo;
 
+import java.awt.Image;
+import java.awt.image.RenderedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,12 +16,14 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.Scanner;
 
+import javax.imageio.ImageIO;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class Project1 {
+public class Project2 {
 
 	private static String clientID = "omcmy4brbg";
 	private static String secretKey = "fEzstawjhbrab8ch9c2LUCzY7MJoYrN0KDbcJ6gG";
@@ -98,17 +102,12 @@ public class Project1 {
 
 		if (responseCode == 200) { // http 상태 정상일때
 			InputStream is = conn.getInputStream(); // 이미지 받기위한 입력스트림
-			byte[] bytes = new byte[1024];
-			// 랜덤 이미지 파일이름
-			String time = Long.valueOf(new Date().getTime()).toString();
-			File f = new File(time + ".jpg"); // 파일이름을 시간으로 생성
-			f.createNewFile(); // 파일 생성
-			OutputStream outputStream = new FileOutputStream(f);
-			int read = 0;
-			while ((read = is.read(bytes)) != -1) {
-				outputStream.write(bytes, 0, read);
-			}
-			outputStream.close();
+            Image image = ImageIO.read(is); //이미지 객체생성
+            // 랜덤한 이름으로 파일 생성
+            String tempname = Long.valueOf(new Date().getTime()).toString();
+            File f = new File(tempname + ".jpg");   
+            f.createNewFile();
+            ImageIO.write((RenderedImage) image, "jpg", f);
 			is.close();
 		} else { // 에러 발생
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
