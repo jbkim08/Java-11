@@ -20,8 +20,8 @@ import org.json.simple.parser.ParseException;
 public class NaverMap {
 	
 	MainFrame mainFrame;
-	private static String clientID = "아이디";
-	private static String secretKey = "시크릿키";
+	private static String clientID = "omcmy4brbg";
+	private static String secretKey = "fEzstawjhbrab8ch9c2LUCzY7MJoYrN0KDbcJ6gG";
 	
 	public NaverMap(MainFrame mainFrame) throws IOException, ParseException {
 		this.mainFrame = mainFrame;
@@ -56,6 +56,7 @@ public class NaverMap {
 		// System.out.println(sb.toString());
 		JSONParser jsonParser = new JSONParser(); // 제이슨 변환 객체
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(sb.toString());
+		//JSONObject ob1 = (JSONObject) jsonObject.get("");
 		JSONArray arr = (JSONArray) jsonObject.get("addresses");
 
 		for (Object one : arr) {
